@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
+  CardText,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -20,10 +21,15 @@ import {
   FormGroup,
   Input,
   Table,
+  Nav,
+  NavItem,
+  NavLink,
+  TabContent,
+  TabPane,
   Row,
   Col,
-  UncontrolledTooltip,
-} from 'reactstrap';
+  UncontrolledTooltip
+} from "reactstrap";
 
 // core components
 import { weatherChart, cargoChart } from 'variables/charts.jsx';
@@ -34,9 +40,18 @@ class Operations extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bigChartData: 'data1',
+      bigChartData: "data1",
       scriptLoaded: false,
+      activeTab: 1
     };
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
   }
 
   setBgChartData = name => {
@@ -172,6 +187,131 @@ class Operations extends React.Component {
                       </tr>
                     </tbody>
                   </Table>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="14">
+              <Card>
+                <CardHeader>
+                  <h5 className="card-category">General Cargo Lineup</h5>
+                </CardHeader>
+                <CardBody>
+                  <Nav tabs>
+                    <NavItem>
+                      <NavLink
+                        className={classNames({
+                          active: this.state.activeTab === "1"
+                        })}
+                        onClick={() => {
+                          this.toggle("1");
+                        }}
+                      >
+                        AT BERTH
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink
+                        className={classNames({
+                          active: this.state.activeTab === "2"
+                        })}
+                        onClick={() => {
+                          this.toggle("2");
+                        }}
+                      >
+                        AT ANCHORAGE
+                      </NavLink>
+                    </NavItem>
+                  </Nav>
+                  <TabContent activeTab={this.state.activeTab}>
+                    <TabPane tabId="1">
+                      <Row>
+                        <Table>
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Vessel</th>
+                              <th>Berth No.</th>
+                              <th>Arrived</th>
+                              <th>Berthed</th>
+                              <th>Cargo</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>ARVIKA</td>
+                              <td>VPDSA - 13</td>
+                              <td>3/5/2019</td>
+                              <td>3/6/2019</td>
+                              <td>UREA</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>VITA HARMONY</td>
+                              <td>PDSA - 14</td>
+                              <td>3/27/2019</td>
+                              <td>3/27/2019</td>
+                              <td>UREA IN BULK</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>JUIST</td>
+                              <td>PDSA - 15</td>
+                              <td>3/21/2019</td>
+                              <td>3/22/2019</td>
+                              <td>Supplies & AVPD Change</td>
+                            </tr>
+                          </tbody>
+                        </Table>
+                      </Row>
+                    </TabPane>
+                    <TabPane tabId="2">
+                      <Row>
+                          <Table >
+                            <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Vessel</th>
+                              <th>Berth No.</th>
+                              <th>Arrived</th>
+                              <th>ETB</th>
+                              <th>Cargo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>BISCAYNE LIGHT</td>
+                                <td>DMP</td>
+                                <td>1/28/2019</td>
+                                <td>3/21/2019</td>
+                                <td>PRIME STEEL BILLET</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>EPIC TRADER</td>
+                                <td>DMP</td>
+                                <td>3/28/2019</td>
+                                <td>2/12/2019</td>
+                                <td>FERTILIZER</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>OSIRIS</td>
+                                <td>DMP</td>
+                                <td>3/28/2019</td>
+                                <td>TBC</td>
+                                <td>FERTILIZER IN BULK</td>
+                              </tr>
+                            </tbody>
+                          </Table>
+                        <Col sm="6">
+                        </Col>
+                      </Row>
+                    </TabPane>
+                  </TabContent>
                 </CardBody>
               </Card>
             </Col>

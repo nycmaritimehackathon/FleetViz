@@ -54,27 +54,188 @@ let chart1_2_options = {
 };
 
 let cargoChart = {
-    data: {
-      labels: ["TEU Full", "TEU Empty", "Reefers"],
-      datasets: [
-        {
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          borderColor: "rgba(0,0,0,0)",
-          data: [1277, 17, 128]
-        }
-      ]
-    },
-    options: {
-      circumference: 1 * Math.PI,
-      rotation: 1 * Math.PI
-    }
-}
+  data: {
+    labels: ['TEU Full', 'TEU Empty', 'Reefers'],
+    datasets: [
+      {
+        backgroundColor: [
+          '#3e95cd',
+          '#8e5ea2',
+          '#3cba9f',
+          '#e8c3b9',
+          '#c45850',
+        ],
+        borderColor: 'rgba(0,0,0,0)',
+        data: [1277, 17, 128],
+      },
+    ],
+  },
+  options: {
+    circumference: 1 * Math.PI,
+    rotation: 1 * Math.PI,
+  },
+};
 
 let engineMetrics = {
   data: {
-
-  }, options: chart1_2_options
-}
+    labels: [
+      '12.03.2019 23:30',
+      '13.03.2019 02:43',
+      '13.03.2019 16:00',
+      '14.03.2019 00:01',
+      '14.03.2019 02:30',
+      '14.03.2019 13:00',
+      '15.03.2019 01:00',
+      '15.03.2019 16:00',
+      '16.03.2019 17:00',
+      '17.03.2019 11:01',
+      '17.03.2019 13:30',
+      '18.03.2019 02:19',
+      '18.03.2019 03:30',
+      '18.03.2019 17:00',
+    ],
+    datasets: [
+      {
+        data: [
+          72.6,
+          73.6,
+          77.5,
+          88.7,
+          88.6,
+          89,
+          89,
+          80.6,
+          49,
+          79.8,
+          79.9,
+          62.3,
+          53.2,
+        ],
+        label: 'Shaft RPM',
+        borderColor: '#3e95cd',
+        fill: false,
+      },
+      {
+        data: [
+          3.66,
+          5.1,
+          62.82,
+          38.04,
+          2.53,
+          5.59,
+          9.04,
+          76.39,
+          126.2,
+          71.61,
+          3.62,
+          7.44,
+          1.32,
+          19.11,
+        ],
+        label: 'Total FOC',
+        borderColor: '#8e5ea2',
+        fill: false,
+      },
+      {
+        data: [
+          11.7,
+          16.4,
+          201.4,
+          122,
+          8.1,
+          17.9,
+          28.8,
+          237.9,
+          393,
+          223,
+          11.3,
+          23.2,
+          4.1,
+          59.5,
+        ],
+        label: 'Total CO2',
+        borderColor: '#3cba9f',
+        fill: false,
+      },
+      {
+        data: [15, 0, 17, 62, 63, 11, 0, 16, 63, 63, 47, 16, 0, 8, 12],
+        label: 'ME Load',
+        borderColor: '#e8c3b9',
+        fill: false,
+      },
+      {
+        data: [
+          30.98,
+          21.82,
+          37.84,
+          40.29,
+          23.63,
+          0,
+          19.1,
+          30.74,
+          28.89,
+          25.19,
+          21.37,
+          19.55,
+          0,
+          18.1,
+        ],
+        label: 'EEOI',
+        borderColor: '#c45850',
+        fill: false,
+      },
+    ],
+  },
+  options: {
+    maintainAspectRatio: false,
+    legend: {
+      display: true,
+    },
+    tooltips: {
+      backgroundColor: '#f5f5f5',
+      titleFontColor: '#333',
+      bodyFontColor: '#666',
+      bodySpacing: 4,
+      xPadding: 12,
+      mode: 'nearest',
+      intersect: 0,
+      position: 'nearest',
+    },
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: 'transparent',
+          },
+          ticks: {
+            suggestedMin: 60,
+            suggestedMax: 125,
+            padding: 20,
+            fontColor: '#9a9a9a',
+          },
+        },
+      ],
+      xAxes: [
+        {
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.1)',
+            zeroLineColor: 'transparent',
+          },
+          ticks: {
+            padding: 20,
+            fontColor: '#9a9a9a',
+          },
+        },
+      ],
+    },
+  }
+};
 
 let weatherChart = {
   data1: canvas => {
@@ -124,8 +285,24 @@ let weatherChart = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [null,6,13.3,8.9,null,null,7.1,14,9.4,6,null,null,8.1,8],
-        }],
+          data: [
+            null,
+            6,
+            13.3,
+            8.9,
+            null,
+            null,
+            7.1,
+            14,
+            9.4,
+            6,
+            null,
+            null,
+            8.1,
+            8,
+          ],
+        },
+      ],
     };
   },
   options: {
@@ -171,7 +348,7 @@ let weatherChart = {
             padding: 20,
             fontColor: '#9e9e9e',
           },
-          stacked: true
+          stacked: true,
         },
       ],
     },
@@ -212,7 +389,22 @@ let weatherChart = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [null,6,13.3,8.9,null,null,7.1,14,9.4,6,null,null,8.1,8],
+          data: [
+            null,
+            6,
+            13.3,
+            8.9,
+            null,
+            null,
+            7.1,
+            14,
+            9.4,
+            6,
+            null,
+            null,
+            8.1,
+            8,
+          ],
         },
       ],
     };
@@ -660,5 +852,5 @@ module.exports = {
   chartExample4, // in src/views/Dashboard.jsx
   weatherChart,
   cargoChart,
-  engineMetrics
+  engineMetrics,
 };
