@@ -2,7 +2,7 @@ import React from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 // react plugin used to create charts
-import { Line, Bar } from 'react-chartjs-2';
+import { Line, Bar, Doughnut } from 'react-chartjs-2';
 
 // reactstrap components
 import {
@@ -26,9 +26,10 @@ import {
 } from 'reactstrap';
 
 // core components
-import { weatherChart } from 'variables/charts.jsx';
+import { weatherChart, cargoChart } from 'variables/charts.jsx';
 
 import ResponsiveEmbed from 'react-responsive-embed';
+
 class Operations extends React.Component {
   constructor(props) {
     super(props);
@@ -148,6 +149,28 @@ class Operations extends React.Component {
                     <ResponsiveEmbed
                       src="https://www.marinetraffic.com/"
                       allowFullScreen
+                    />
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="4">
+              <Card className="card-chart">
+                <CardHeader>
+                  <h5 className="card-category">
+                    Cargo Weight
+                  </h5>
+                  <CardTitle tag="h3">
+                    <i className="tim-icons icon-app text-info" /> 23,360
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <div className="chart-area">
+                    <Doughnut
+                      data={cargoChart.data}
+                      options={cargoChart.options}
                     />
                   </div>
                 </CardBody>

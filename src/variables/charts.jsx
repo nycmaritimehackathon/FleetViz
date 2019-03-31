@@ -53,6 +53,23 @@ let chart1_2_options = {
   },
 };
 
+let cargoChart = {
+    data: {
+      labels: ["TEU Full", "TEU Empty", "Reefers"],
+      datasets: [
+        {
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          borderColor: "rgba(0,0,0,0)",
+          data: [1277, 17, 128]
+        }
+      ]
+    },
+    options: {
+      circumference: 1 * Math.PI,
+      rotation: 1 * Math.PI
+    }
+}
+
 let weatherChart = {
   data1: canvas => {
     let ctx = canvas.getContext('2d');
@@ -625,4 +642,5 @@ module.exports = {
   chartExample3, // in src/views/Dashboard.jsx
   chartExample4, // in src/views/Dashboard.jsx
   weatherChart,
+  cargoChart
 };
