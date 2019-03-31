@@ -26,25 +26,36 @@ import {
 } from 'reactstrap';
 
 // core components
-import {
-  chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4,
-} from 'variables/charts.jsx';
+import { weatherChart } from 'variables/charts.jsx';
 
+import ResponsiveEmbed from 'react-responsive-embed'
 class Operations extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       bigChartData: 'data1',
+      scriptLoaded: false,
     };
   }
+
   setBgChartData = name => {
     this.setState({
       bigChartData: name,
     });
   };
+
+  handleScriptCreate() {
+    this.setState({ scriptLoaded: false });
+  }
+
+  handleScriptError() {
+    this.setState({ scriptError: true });
+  }
+
+  handleScriptLoad() {
+    this.setState({ scriptLoaded: true });
+  }
+
   render() {
     return (
       <>
@@ -55,10 +66,7 @@ class Operations extends React.Component {
                 <CardHeader>
                   <Row>
                     <Col className="text-left" sm="6">
-                      <h5 className="card-category">Voyage</h5>
-                      <CardTitle tag="h2">
-                        Specific Fuel Oil Consumption
-                      </CardTitle>
+                      <CardTitle tag="h2">Weather</CardTitle>
                     </Col>
                     <Col sm="6">
                       <ButtonGroup
@@ -82,7 +90,7 @@ class Operations extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Total SFOC ME
+                            Douglas Sea State
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-single-02" />
@@ -104,7 +112,7 @@ class Operations extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Total SFOC AE
+                            Wind Speed
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-gift-2" />
@@ -115,11 +123,18 @@ class Operations extends React.Component {
                   </Row>
                 </CardHeader>
                 <CardBody>
-                  
+                  <div className="chart-area">
+                    <Bar
+                      data={weatherChart[this.state.bigChartData]}
+                      options={weatherChart.options}
+                    />
+                  </div>
                 </CardBody>
               </Card>
             </Col>
           </Row>
+          <ResponsiveEmbed src='https://www.marinetraffic.com/' allowFullScreen />
+
         </div>
       </>
     );

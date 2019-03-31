@@ -85,7 +85,7 @@ class Admin extends React.Component {
           routes[i].layout + routes[i].path
         ) !== -1
       ) {
-        return routes[i].name;
+        return `${routes[i].name} Dashboard`;
       }
     }
     return "Brand";
@@ -110,6 +110,12 @@ class Admin extends React.Component {
             ref="mainPanel"
             data={this.state.backgroundColor}
           >
+          <AdminNavbar
+              {...this.props}
+              brandText="FleetViz"
+              toggleSidebar={this.toggleSidebar}
+              sidebarOpened={this.state.sidebarOpened}
+            />
             <Switch>{this.getRoutes(routes)}</Switch>
             {// we don't want the Footer to be rendered on map page
             this.props.location.pathname.indexOf("maps") !== -1 ? null : (

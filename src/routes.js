@@ -38,7 +38,7 @@ var routes = [
     name: "Cargo",
     rtlName: "خرائط",
     icon: "tim-icons icon-app",
-    component: Map,
+    component: Typography,
     layout: "/admin"
   },
   {
@@ -46,7 +46,7 @@ var routes = [
     name: "Support",
     rtlName: "خرائط",
     icon: "tim-icons icon-support-17",
-    component: Map,
+    component: Icons,
     layout: "/admin"
   },
 ];
