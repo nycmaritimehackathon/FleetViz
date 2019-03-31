@@ -307,9 +307,9 @@ let chartExample3 = {
 
     let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke.addColorStop(1, 'rgba(178,34,34,0.2)');
-    gradientStroke.addColorStop(0.4, 'rgba(178,34,34,0.0)');
-    gradientStroke.addColorStop(0, 'rgba(178,34,34,0)'); //blue colors
+    gradientStroke.addColorStop(1, 'rgba(210,105,30,0.2)');
+    gradientStroke.addColorStop(0.4, 'rgba(210,105,30,0.0)');
+    gradientStroke.addColorStop(0, 'rgba(210,105,30,0)'); //blue colors
 
     return {
       labels: [
@@ -330,14 +330,14 @@ let chartExample3 = {
       ],
       datasets: [
         {
-          label: 'HFO ROB',
+          label: 'MGO ROB',
           fill: true,
           backgroundColor: gradientStroke,
-          borderColor: '#CD5C5C',
+          borderColor: '#FF4500',
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          pointBackgroundColor: '#CD5C5C',
+          pointBackgroundColor: '#FF4500',
           pointBorderColor: 'rgba(255,255,255,0)',
           pointHoverBackgroundColor: '#1f8ef1',
           pointBorderWidth: 20,
@@ -345,20 +345,21 @@ let chartExample3 = {
           pointHoverBorderWidth: 15,
           pointRadius: 4,
           data: [
-            2773.8,
-            2768.7,
-            2705.9,
-            2667.8,
-            2665.3,
-            2659.7,
-            2650.7,
-            2574.2,
-            2448.1,
-            2376.5,
-            2372.9,
-            2365.4,
-            2364.1,
-            2344.99,
+            449.93,
+            444.83,
+            382.01,
+            343.97,
+            341.44,
+            335.85,
+            328.67,
+            328.67,
+            328.67,
+            328.67,
+            328.67,
+            328.67,
+            328.67,
+            328.67,
+            328.67,
           ],
         },
       ],
@@ -381,7 +382,22 @@ const chartExample4 = {
     gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
     return {
-      labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV'],
+      labels: [
+        '12.03.2019 23:30',
+        '13.03.2019 02:43',
+        '13.03.2019 16:00',
+        '14.03.2019 00:01',
+        '14.03.2019 02:30',
+        '14.03.2019 13:00',
+        '15.03.2019 01:00',
+        '15.03.2019 16:00',
+        '16.03.2019 17:00',
+        '17.03.2019 11:01',
+        '17.03.2019 13:30',
+        '18.03.2019 02:19',
+        '18.03.2019 03:30',
+        '18.03.2019 17:00',
+      ],
       datasets: [
         {
           label: 'My First dataset',
@@ -398,7 +414,22 @@ const chartExample4 = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: [90, 27, 60, 12, 80],
+          data: [
+            57685,
+            57685,
+            57685,
+            57685,
+            57685,
+            57685,
+            57685,
+            57685,
+            56055,
+            56055,
+            56055,
+            56055,
+            56055,
+            56055,
+          ],
         },
       ],
     };
