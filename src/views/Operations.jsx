@@ -67,59 +67,7 @@ class Operations extends React.Component {
                 <CardHeader>
                   <Row>
                     <Col className="text-left" sm="6">
-                      <CardTitle tag="h2">Weather</CardTitle>
-                    </Col>
-                    <Col sm="6">
-                      <ButtonGroup
-                        className="btn-group-toggle float-right"
-                        data-toggle="buttons"
-                      >
-                        <Button
-                          tag="label"
-                          className={classNames('btn-simple', {
-                            active: this.state.bigChartData === 'data1',
-                          })}
-                          color="info"
-                          id="0"
-                          size="sm"
-                          onClick={() => this.setBgChartData('data1')}
-                        >
-                          <input
-                            defaultChecked
-                            className="d-none"
-                            name="options"
-                            type="radio"
-                          />
-                          <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Douglas Sea State
-                          </span>
-                          <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-single-02" />
-                          </span>
-                        </Button>
-                        <Button
-                          color="info"
-                          id="1"
-                          size="sm"
-                          tag="label"
-                          className={classNames('btn-simple', {
-                            active: this.state.bigChartData === 'data2',
-                          })}
-                          onClick={() => this.setBgChartData('data2')}
-                        >
-                          <input
-                            className="d-none"
-                            name="options"
-                            type="radio"
-                          />
-                          <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Wind Speed
-                          </span>
-                          <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-gift-2" />
-                          </span>
-                        </Button>
-                      </ButtonGroup>
+                      <CardTitle tag="h2">Weather Conditions</CardTitle>
                     </Col>
                   </Row>
                 </CardHeader>
@@ -159,9 +107,7 @@ class Operations extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">
-                    Cargo Weight
-                  </h5>
+                  <h5 className="card-category">Cargo Weight</h5>
                   <CardTitle tag="h3">
                     <i className="tim-icons icon-app text-info" /> 23,360
                   </CardTitle>
@@ -173,6 +119,59 @@ class Operations extends React.Component {
                       options={cargoChart.options}
                     />
                   </div>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="8">
+              <Card className="card-chart">
+                <CardHeader>
+                  <h5 className="card-category">Vessel Name</h5>
+                  <CardTitle tag="h3">
+                    <i className="tim-icons icon-map-big text-info" /> Vessel
+                    Status
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <Table className="tablesorter">
+                    <thead className="text-primary">
+                      <tr>
+                        <th>Timestamp</th>
+                        <th>State</th>
+                        <th>Last Event</th>
+                        <th>ETA</th>
+                        <th>Sailing Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>18.03.2019 12:00</td>
+                        <td>At Sea</td>
+                        <td>Noon Report</td>
+                        <td>19.03.2019 02:00</td>
+                        <td>13.5 Hours</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                  <Table className="tablesorter">
+                    <thead className="text-primary">
+                      <tr>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Heading</th>
+                        <th>Speed</th>
+                        <th>Draft</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>9.96</td>
+                        <td>-77.97</td>
+                        <td>262</td>
+                        <td>10.9 Kts</td>
+                        <td>9.97</td>
+                      </tr>
+                    </tbody>
+                  </Table>
                 </CardBody>
               </Card>
             </Col>

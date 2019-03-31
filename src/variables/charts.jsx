@@ -70,6 +70,12 @@ let cargoChart = {
     }
 }
 
+let engineMetrics = {
+  data: {
+
+  }, options: chart1_2_options
+}
+
 let weatherChart = {
   data1: canvas => {
     let ctx = canvas.getContext('2d');
@@ -109,13 +115,23 @@ let weatherChart = {
           borderDashOffset: 0.0,
           data: [4, 4, null, null, 3, 3, 3, 3, null, null, 4, 4, 4, null],
         },
-      ],
+        {
+          label: 'Wind Speed',
+          fill: true,
+          backgroundColor: gradientStroke,
+          hoverBackgroundColor: gradientStroke,
+          borderColor: '#FAEBCC',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          data: [null,6,13.3,8.9,null,null,7.1,14,9.4,6,null,null,8.1,8],
+        }],
     };
   },
   options: {
     maintainAspectRatio: false,
     legend: {
-      display: false,
+      display: true,
     },
     tooltips: {
       backgroundColor: '#f5f5f5',
@@ -155,6 +171,7 @@ let weatherChart = {
             padding: 20,
             fontColor: '#9e9e9e',
           },
+          stacked: true
         },
       ],
     },
@@ -642,5 +659,6 @@ module.exports = {
   chartExample3, // in src/views/Dashboard.jsx
   chartExample4, // in src/views/Dashboard.jsx
   weatherChart,
-  cargoChart
+  cargoChart,
+  engineMetrics
 };

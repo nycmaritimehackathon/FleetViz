@@ -31,6 +31,7 @@ import {
   chartExample2,
   chartExample3,
   chartExample4,
+  engineMetrics,
 } from 'variables/charts.jsx';
 
 class Engineering extends React.Component {
@@ -201,6 +202,28 @@ class Engineering extends React.Component {
                     <Line
                       data={chartExample4.data}
                       options={chartExample4.options}
+                    />
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12">
+              <Card className="card-chart">
+                <CardHeader>
+                  <h5 className="card-category">
+                    
+                  </h5>
+                  <CardTitle tag="h3">
+                    <i className="tim-icons icon-settings-gear-63 text-info" /> Engine Metrics
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <div className="chart-area">
+                    <Line
+                      data={engineMetrics.data}
+                      options={engineMetrics.options}
                     />
                   </div>
                 </CardBody>
