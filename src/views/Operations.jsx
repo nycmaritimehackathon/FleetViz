@@ -28,7 +28,7 @@ import {
 // core components
 import { weatherChart } from 'variables/charts.jsx';
 
-import ResponsiveEmbed from 'react-responsive-embed'
+import ResponsiveEmbed from 'react-responsive-embed';
 class Operations extends React.Component {
   constructor(props) {
     super(props);
@@ -133,8 +133,27 @@ class Operations extends React.Component {
               </Card>
             </Col>
           </Row>
-          <ResponsiveEmbed src='https://www.marinetraffic.com/' allowFullScreen />
-
+          <Row>
+            <Col xs="12">
+              <Card>
+                <CardHeader>
+                  <Row>
+                    <Col className="text-left" sm="6">
+                      <CardTitle tag="h2">Marine Traffic</CardTitle>
+                    </Col>
+                  </Row>
+                </CardHeader>
+                <CardBody>
+                  <div className="chart-area">
+                    <ResponsiveEmbed
+                      src="https://www.marinetraffic.com/"
+                      allowFullScreen
+                    />
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
         </div>
       </>
     );
