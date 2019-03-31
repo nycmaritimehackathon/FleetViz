@@ -10,7 +10,7 @@ import UserProfile from "views/UserProfile.jsx";
 var routes = [
   {
     path: "/dashboard",
-    name: "FleetViz Dashboard",
+    name: "Overview",
     rtlName: "لوحة القيادة",
     icon: "tim-icons icon-chart-pie-36",
     component: Dashboard,
